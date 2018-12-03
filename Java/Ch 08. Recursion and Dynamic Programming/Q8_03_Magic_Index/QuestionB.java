@@ -8,7 +8,7 @@ public class QuestionB {
 
 	public static int magicSlow(int[] array) {
 		for (int i = 0; i < array.length; i++) {
-			if (array[i] == i) {
+			if (array[i]-1 == i) {
 				return i;
 			}
 		}
@@ -20,7 +20,7 @@ public class QuestionB {
 			return -1;
 		}
 		int midIndex = (start + end) / 2;
-		int midValue = array[midIndex];
+		int midValue = array[midIndex]-1;
 		if (midValue == midIndex) {
 			return midIndex;
 		}
@@ -56,11 +56,11 @@ public class QuestionB {
 			int v2 = magicFast(array);
 			if (v2 == -1 && magicSlow(array) != -1) {
 				int v1 = magicSlow(array);
-				System.out.println("Incorrect value: index = -1, actual = " + v1 + " " + i);
+				System.out.println("Incorrect value: index = -1, actual = " + (v1+1) + " " + i);
 				System.out.println(AssortedMethods.arrayToString(array));
 				break;
-			} else if (v2 > -1 && array[v2] != v2) {
-				System.out.println("Incorrect values: index= " + v2 + ", value " + array[v2]);
+			} else if (v2 > -1 && array[v2]-1 != v2) {
+				System.out.println("Incorrect values: index= " + (v2+1) + ", value " + array[v2]);
 				System.out.println(AssortedMethods.arrayToString(array));
 				break;
 			}
